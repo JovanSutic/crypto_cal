@@ -1,4 +1,6 @@
 import { createRequestHandler } from "@remix-run/express";
+import { type ServerBuild } from '@remix-run/node';
+import * as sBuild from './build/server/index.js';
 import express from "express";
 
 const viteDevServer =
@@ -24,7 +26,7 @@ const build = viteDevServer
       )
   : await import("./build/server/index.js");
 
-app.all("*", createRequestHandler({ build }));
+app.all("*", createRequestHandler({ build: sBuild as unknown as ServerBuild }));
 
 app.listen(3000, () => {
   console.log("App listening on http://localhost:3000");
