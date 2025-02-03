@@ -19,7 +19,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <div className="w-full lg:w-[992px] mx-auto p-2 md:p-4">
+        <div className="w-full lg:w-[992px] mx-auto p-2 md:p-4 overflow-hidden">
           <HeaderSelector />
           <DataDisplay />
           <Scripts />
